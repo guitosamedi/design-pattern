@@ -32,5 +32,8 @@ public class App {
         System.out.println("Affichages des boutons pour HTML");
         dialog = new HTMLDialog();
         dialog.render();
-        }
+
+        System.out.println("----- Test de Builder -----");
+
+    }
 }
