@@ -35,5 +35,7 @@ public class App {
 
         System.out.println("----- Test de Builder -----");
 
+        System.out.println("----- Test de Prototype -----");
+
     }
 }
