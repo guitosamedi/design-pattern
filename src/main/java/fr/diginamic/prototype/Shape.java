@@ -2,24 +2,20 @@ package fr.diginamic.prototype;
 
 import fr.diginamic.singleton.Singleton;
 
-public abstract class Shape {
-    String color;
-    int x;
-    int y;
+public abstract class Shape implements Cloneable {
+    private int x;
+    private int y;
+    private String color;
 
-    public Shape(String color, int x, int y) {
-        this.color = color;
-        this.x = x;
-        this.y = y;
+    public Shape() {
     }
 
-    public String getColor() {
-        return color;
+    public Shape(Shape shape) {
+        this.x = shape.x;
+        this.y = shape.y;
+        this.color = shape.color;
     }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
+    public abstract Shape clone();
 
     public int getX() {
         return x;
@@ -37,18 +33,21 @@ public abstract class Shape {
         this.y = y;
     }
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("Shape{");
-        sb.append("color='").append(color).append('\'');
-        sb.append(", x=").append(x);
-        sb.append(", y=").append(y);
-        sb.append('}');
-        return sb.toString();
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     @Override
-    public Singleton clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException("Clonage interdit");
+    public String toString() {
+        return "Shape{" +
+                "x=" + x +
+                ", y=" + y +
+                ", color='" + color + '\'' +
+                '}';
     }
+
 }

@@ -3,9 +3,19 @@ package fr.diginamic.prototype;
 import fr.diginamic.singleton.Singleton;
 
 public class Circle extends Shape {
-    int radius;
-    public Circle(String color, int x, int y) {
-        super(color, x, y);
+    private int radius;
+
+    public Circle() {
+    }
+
+    public Circle(Circle circle) {
+        super(circle);
+        this.radius = circle.radius;
+    }
+
+    @Override
+    public Circle clone() {
+        return new Circle(this);
     }
 
     public int getRadius() {
@@ -18,11 +28,11 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return super.toString();
-    }
-
-    @Override
-    public Singleton clone() throws CloneNotSupportedException {
-        return super.clone();
+        return "Circle{" +
+                "x=" + getX() +
+                ", y=" + getY() +
+                ", color='" + getColor() + '\'' +
+                ", radius=" + radius +
+                '}';
     }
 }
