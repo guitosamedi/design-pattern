@@ -5,6 +5,11 @@ import fr.diginamic.composite.CircleCompo;
 import fr.diginamic.prototype.CircleProto;
 import fr.diginamic.prototype.Rectangle;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Vector;
+
 public class App {
     public static void main(String[] args) throws CloneNotSupportedException {
         /*
@@ -35,7 +40,7 @@ public class App {
         dialog.render();
 
         System.out.println("----- Test de Builder -----");
-*/
+
         System.out.println("----- Test de Prototype -----");
 
         CircleProto circle = new CircleProto();
@@ -76,5 +81,44 @@ public class App {
         root.draw();
         root.move(2, 2);
         root.draw();
+
+*/
+        System.out.println("----- Test de Iterator -----");
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Element 1");
+        arrayList.add("Element 2");
+        arrayList.add("Element 3");
+        arrayList.add("Element 4");
+        arrayList.add("Element 5");
+        arrayList.add("Element 6");
+        arrayList.add("Element 7");
+        arrayList.add("Element 8");
+        arrayList.add("Element 9");
+        arrayList.add("Element 10");
+
+        Vector<String> vector = new Vector<>();
+        vector.add("Element 11");
+        vector.add("Element 12");
+        vector.add("Element 13");
+        vector.add("Element 14");
+        vector.add("Element 15");
+
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Element 16");
+        hashSet.add("Element 17");
+        hashSet.add("Element 18");
+        hashSet.add("Element 19");
+        hashSet.add("Element 20");
+
+        afficheElement(arrayList);
+        afficheElement(vector);
+        afficheElement(hashSet);
+    }
+
+    public static void afficheElement(Iterable<String> iterable) {
+        Iterator<String> iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
