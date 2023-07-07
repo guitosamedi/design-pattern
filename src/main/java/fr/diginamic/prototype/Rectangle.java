@@ -3,18 +3,21 @@ package fr.diginamic.prototype;
 import fr.diginamic.singleton.Singleton;
 
 public class Rectangle extends Shape{
-    int height;
-    int width;
-    public Rectangle(String color, int x, int y) {
-        super(color, x, y);
+    private int width;
+    private int height;
+
+    public Rectangle() {
     }
 
-    public int getHeight() {
-        return height;
+    public Rectangle(Rectangle rectangle) {
+        super(rectangle);
+        this.width = rectangle.width;
+        this.height = rectangle.height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    @Override
+    public Rectangle clone() {
+        return new Rectangle(this);
     }
 
     public int getWidth() {
@@ -25,13 +28,22 @@ public class Rectangle extends Shape{
         this.width = width;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     @Override
-    public Singleton clone() throws CloneNotSupportedException {
-        return super.clone();
+    public String toString() {
+        return "Rectangle{" +
+                "x=" + getX() +
+                ", y=" + getY() +
+                ", color='" + getColor() + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
     }
 }
