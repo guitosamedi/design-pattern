@@ -1,21 +1,19 @@
 package fr.diginamic.prototype;
 
-import fr.diginamic.singleton.Singleton;
-
-public class Circle extends Shape {
+public class CircleProto extends Shape {
     private int radius;
 
-    public Circle() {
+    public CircleProto() {
     }
 
-    public Circle(Circle circle) {
+    public CircleProto(CircleProto circle) {
         super(circle);
         this.radius = circle.radius;
     }
 
     @Override
-    public Circle clone() {
-        return new Circle(this);
+    public CircleProto clone() {
+        return new CircleProto(this);
     }
 
     public int getRadius() {

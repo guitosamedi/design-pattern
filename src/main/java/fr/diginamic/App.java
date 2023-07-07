@@ -1,10 +1,9 @@
 package fr.diginamic;
-import fr.diginamic.factory.Dialog;
-import fr.diginamic.factory.HTMLDialog;
-import fr.diginamic.factory.WindowsDialog;
-import fr.diginamic.prototype.Circle;
+import fr.diginamic.composite.CompoundGraphic;
+import fr.diginamic.composite.Dot;
+import fr.diginamic.composite.CircleCompo;
+import fr.diginamic.prototype.CircleProto;
 import fr.diginamic.prototype.Rectangle;
-import fr.diginamic.singleton.Singleton;
 
 public class App {
     public static void main(String[] args) throws CloneNotSupportedException {
@@ -39,13 +38,13 @@ public class App {
 */
         System.out.println("----- Test de Prototype -----");
 
-        Circle circle = new Circle();
+        CircleProto circle = new CircleProto();
         circle.setX(20);
         circle.setY(0);
         circle.setColor("blue");
         circle.setRadius(5);
 
-        Circle clonedCircle = circle.clone();
+        CircleProto clonedCircle = circle.clone();
         clonedCircle.setColor("red");
 
         Rectangle rectangle = new Rectangle();
@@ -63,5 +62,19 @@ public class App {
         System.out.println("Rectangle (x=25, y=0, color=green, width=5, height=5) : " + rectangle);
         System.out.println("Clone Rectangle hauteur « 112 » : " + clonedRectangle);
 
+
+        System.out.println("----- Test de Composite -----");
+        CompoundGraphic root = new CompoundGraphic(1, 1);
+        root.add(new Dot(2, 2));
+        root.add(new CircleCompo(2, 2, 50));
+
+        CompoundGraphic graph = new CompoundGraphic(10, 10);
+        graph.add(new Dot(20, 20));
+        graph.add(new CircleCompo(30, 20, 20));
+        root.add(graph);
+
+        root.draw();
+        root.move(2, 2);
+        root.draw();
     }
 }
