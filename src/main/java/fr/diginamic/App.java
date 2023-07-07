@@ -2,6 +2,8 @@ package fr.diginamic;
 import fr.diginamic.composite.CompoundGraphic;
 import fr.diginamic.composite.Dot;
 import fr.diginamic.composite.CircleCompo;
+import fr.diginamic.observer.LaPoste;
+import fr.diginamic.observer.Maison;
 import fr.diginamic.prototype.CircleProto;
 import fr.diginamic.prototype.Rectangle;
 
@@ -82,7 +84,7 @@ public class App {
         root.move(2, 2);
         root.draw();
 
-*/
+
         System.out.println("----- Test de Iterator -----");
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i <10; i++){
@@ -122,8 +124,30 @@ public class App {
         afficheElement(arrayList);
         afficheElement(vector);
         afficheElement(hashSet);
+*/
+        System.out.println("----- Test de Observer -----");
+        LaPoste poste = new LaPoste();
+
+        Maison maison1 = new Maison("Maison 1");
+        Maison maison2 = new Maison("Maison 2");
+        Maison maison3 = new Maison("Maison 3");
+        Maison maison4 = new Maison("Maison 4");
+        Maison maison5 = new Maison("Maison 5");
+
+        poste.subscribe(maison1);
+        poste.subscribe(maison2);
+        poste.subscribe(maison3);
+        poste.subscribe(maison4);
+
+        poste.publish("Message 1");
+
+        poste.subscribe(maison5);
+
+        poste.publish("Message 2");
+
     }
 
+    // Iterator methode
     public static void afficheElement(Iterable<String> iterable) {
         Iterator<String> iterator = iterable.iterator();
         while (iterator.hasNext()) {
