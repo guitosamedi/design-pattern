@@ -3,7 +3,7 @@ package fr.diginamic.prototype;
 import fr.diginamic.singleton.Singleton;
 
 public class Circle extends Shape {
-    private int radius;
+    private double radius;
 
     public Circle() {
     }
@@ -18,7 +18,7 @@ public class Circle extends Shape {
         return new Circle(this);
     }
 
-    public int getRadius() {
+    public double getRadius() {
         return radius;
     }
 
