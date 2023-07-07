@@ -85,30 +85,39 @@ public class App {
 */
         System.out.println("----- Test de Iterator -----");
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Element 1");
-        arrayList.add("Element 2");
-        arrayList.add("Element 3");
-        arrayList.add("Element 4");
-        arrayList.add("Element 5");
-        arrayList.add("Element 6");
-        arrayList.add("Element 7");
-        arrayList.add("Element 8");
-        arrayList.add("Element 9");
-        arrayList.add("Element 10");
+        for (int i = 0; i <10; i++){
+            arrayList.add("Element :" + (i +1));
+        }
+        //arrayList.add("Element 1");
+        //arrayList.add("Element 2");
+        //arrayList.add("Element 3");
+        //arrayList.add("Element 4");
+        //arrayList.add("Element 5");
+        //arrayList.add("Element 6");
+        //arrayList.add("Element 7");
+        //arrayList.add("Element 8");
+        //arrayList.add("Element 9");
+       // arrayList.add("Element 10");
 
         Vector<String> vector = new Vector<>();
-        vector.add("Element 11");
-        vector.add("Element 12");
-        vector.add("Element 13");
-        vector.add("Element 14");
-        vector.add("Element 15");
+        for (int i = 0; i <15; i++){
+        vector.add("Elements " + (i +1));
+        }
+        //vector.add("Element 11");
+        //vector.add("Element 12");
+        //vector.add("Element 13");
+        //vector.add("Element 14");
+        //vector.add("Element 15");
 
         HashSet<String> hashSet = new HashSet<>();
-        hashSet.add("Element 16");
-        hashSet.add("Element 17");
-        hashSet.add("Element 18");
-        hashSet.add("Element 19");
-        hashSet.add("Element 20");
+        for (int i = 0; i <20; i++){
+            hashSet.add("Element " + (i +1));
+        }
+       // hashSet.add("Element 16");
+        //hashSet.add("Element 17");
+        //hashSet.add("Element 18");
+        //hashSet.add("Element 19");
+       // hashSet.add("Element 20");
 
         afficheElement(arrayList);
         afficheElement(vector);
